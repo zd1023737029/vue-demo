@@ -3,6 +3,7 @@
         <el-row>
             <el-col :span='7' class="pos-main-left" >
             我是订单栏
+            <input type="hidden" id="test" value="123456">
             </el-col>
             <el-col :span="17" class="pos-main-right">
              我是产品栏
@@ -16,8 +17,13 @@ export default {
     data(){
         return{
         }
+    },
+    mounted : function(){
+        console.log($("#test").val())
     }
+      
 }
+
 </script>
 <style scoped>
     .pos-main-left{
