@@ -34,8 +34,12 @@
                 </el-tabs>
             <input type="hidden" id="test" value="123456">
             </el-col>
-            <el-col :span="17" class="pos-main-right">
-             我是产品栏
+            <el-col :span="17" class="pos-main-right" style="background-color:#EEF2F8">
+                <div>
+                    <div style="width:100%;height:30px;line-height:30px;vertical-align:middle;text-align:left;background-color:#FFF;padding-left:80px">
+                      常用商品
+                    </div>
+                </div>
             </el-col>
         </el-row>
     </div>
