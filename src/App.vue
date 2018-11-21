@@ -2,6 +2,8 @@
   <div id="app">
     <leftNav></leftNav>
     <div class="right-main">
+      <pos>
+      </pos>
       <router-view/>
     </div>
   </div>
@@ -9,9 +11,10 @@
 
 <script>
 import leftNav from '@/components/public/LeftNav'
+import pos from '@/components/pages/Pos'
 export default {
   name: 'App',
-  components:{leftNav}
+  components:{leftNav,pos}
 }
 </script>
 
