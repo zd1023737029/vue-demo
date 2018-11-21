@@ -1,12 +1,17 @@
 <template>
   <div id="app">
-    <router-view/>
+    <leftNav></leftNav>
+    <div class="right-main">
+      <router-view/>
+    </div>
   </div>
 </template>
 
 <script>
+import leftNav from '@/components/public/LeftNav'
 export default {
-  name: 'App'
+  name: 'App',
+  components:{leftNav}
 }
 </script>
 
@@ -16,5 +21,12 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+}
+.right-main{
+  width : 95%;
+  height : 100vh;
+  float : right;
+  background-color : #EFF2F7;
+  overflow : hidden;
 }
 </style>

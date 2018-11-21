@@ -9,8 +9,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Pos',
-      component: Pos
+      name: 'Vue',
+      component: Vue
     }
   ]
 })
