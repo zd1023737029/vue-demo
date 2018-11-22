@@ -39,6 +39,13 @@
                     <div style="width:100%;height:30px;line-height:30px;vertical-align:middle;text-align:left;background-color:#FFF;padding-left:80px">
                       常用商品
                     </div>
+                    <div class="right-list-top">
+                        <ul>
+                            <li v-for="rightTopData in rightTopListData">
+                                 {{rightTopData.goodsName}}<span>￥{{rightTopData.price}}元</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </el-col>
         </el-row>
@@ -66,7 +73,50 @@ export default {
           goodsPrice: 8,
           goodsCount:1
         }
-        ]
+        ],
+        rightTopListData : [
+          {
+              goodsId:1,
+              goodsName:'香辣鸡腿堡',
+              price:18
+          }, {
+              goodsId:2,
+              goodsName:'田园鸡腿堡',
+              price:15
+          }, {
+              goodsId:3,
+              goodsName:'和风汉堡',
+              price:15
+          }, {
+              goodsId:4,
+              goodsName:'快乐全家桶',
+              price:80
+          }, {
+              goodsId:5,
+              goodsName:'脆皮炸鸡腿',
+              price:10
+          }, {
+              goodsId:6,
+              goodsName:'魔法鸡块',
+              price:20
+          }, {
+              goodsId:7,
+              goodsName:'可乐大杯',
+              price:10
+          }, {
+              goodsId:8,
+              goodsName:'雪顶咖啡',
+              price:18
+          }, {
+              goodsId:9,
+              goodsName:'大块鸡米花',
+              price:15
+          }, {
+              goodsId:20,
+              goodsName:'香脆鸡柳',
+              price:17
+          }
+        ],
         }
     },
     mounted : function(){
@@ -86,6 +136,19 @@ export default {
     .pos-main-right{
         height:100vh;
         background-color:#ffffff;
+    }
+    .right-list-top ul li{
+        list-style: none;
+        background-color:#ffffff;
+        padding:10px;
+        margin:10px;
+        text-align: center;
+        height:25px;
+        float: left;
+
+    }
+    .right-list-top ul li span{
+        color:#6A6AFF
     }
 </style>
 
