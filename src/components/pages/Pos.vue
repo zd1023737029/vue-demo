@@ -36,7 +36,7 @@
             </el-col>
             <el-col :span="17" class="pos-main-right" style="background-color:#EEF2F8">
                 <div>
-                    <div style="width:100%;height:30px;line-height:30px;vertical-align:middle;text-align:left;background-color:#FFF;padding-left:80px">
+                    <div style="width:100%;height:30px;line-height:30px;vertical-align:middle;text-align:left;background-color:#edf4f7;padding-left:80px;border-bottom:1px solid #9b9b9b">
                       常用商品
                     </div>
                     <div class="right-list-top">
@@ -45,6 +45,9 @@
                                  {{rightTopData.goodsName}}<span>￥{{rightTopData.price}}元</span>
                             </li>
                         </ul>
+                    </div>
+                    <div class="">
+
                     </div>
                 </div>
             </el-col>
