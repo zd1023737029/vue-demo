@@ -113,10 +113,11 @@
                                 </div>
                             </el-tab-pane>
                             <el-tab-pane label="套餐">
-                                <div v-for="item in bottomDataList3">
-                                    <el-card :body-style="{ padding: '0px' }" style="width:180px;height:250px;float:left;margin:20px">
+                                <div v-for="item in bottomDataList3" >
+                                    <span style="cursor:pointer">
+                                    <el-card :body-style="{ padding: '0px' }" style="width:180px;height:250px;float:left;margin:20px;">
                                         <img :src="item.goodsImg" class="image">
-                                        <div style="padding: 14px;">
+                                        <div style="padding: 14px;cursor: pointer">
                                             <el-row>
                                                 <el-col :span="7" style="text-align:left;color:rgb(206, 66, 31);">
                                                      ￥{{ item.price }}
@@ -130,6 +131,7 @@
                                             </div>
                                         </div>
                                     </el-card>
+                                    </span>
                                 </div>
                             </el-tab-pane>
                         </el-tabs>
@@ -146,23 +148,7 @@ export default {
     name : "Pos",
     data(){
         return{
-        tableData: [{
-          goodsName: '可口可乐',
-          goodsPrice: 8,
-          goodsCount:1
-        }, {
-          goodsName: '香辣鸡腿堡',
-          goodsPrice: 15,
-          goodsCount:1
-        }, {
-          goodsName: '爱心薯条',
-          goodsPrice: 8,
-          goodsCount:1
-        }, {
-          goodsName: '甜筒',
-          goodsPrice: 8,
-          goodsCount:1
-        }
+        tableData: [
         ],
         rightTopListData : [],
         rightBottomDataList :[
@@ -286,6 +272,7 @@ export default {
         text-align: center;
         height:25px;
         float: left;
+        cursor:pointer
 
     }
     .right-list-top ul li span{
@@ -295,7 +282,7 @@ export default {
         padding-left:50px;
     }
     .image{
-        width:180px;height:180px
+        width:180px;height:180px;    cursor: pointer
     }
 </style>
 
