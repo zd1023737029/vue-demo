@@ -52,13 +52,13 @@
                     <div class="right-list-bottom">
                         <el-tabs>
                             <el-tab-pane label="汉堡">
-                                <div v-for="item in rightBottomDataList">
+                                <div v-for="item in bottomDataList0">
                                     <el-card :body-style="{ padding: '0px' }" style="width:180px;height:250px;float:left;margin:20px">
                                         <img :src="item.goodsImg" class="image">
                                         <div style="padding: 14px;">
                                             <el-row>
                                                 <el-col :span="7" style="text-align:left;color:rgb(206, 66, 31);">
-                                                     ￥{{ item.goodsPrice }}
+                                                     ￥{{ item.price }}
                                                  </el-col>
                                                  <el-col :span="17" style="text-align:right">
                                                     {{item.goodsName}}
@@ -73,13 +73,64 @@
                                         
                             </el-tab-pane>
                             <el-tab-pane label="小吃">
-                                挂单
+                                <div v-for="item in bottomDataList1">
+                                    <el-card :body-style="{ padding: '0px' }" style="width:180px;height:250px;float:left;margin:20px">
+                                        <img :src="item.goodsImg" class="image">
+                                        <div style="padding: 14px;">
+                                            <el-row>
+                                                <el-col :span="7" style="text-align:left;color:rgb(206, 66, 31);">
+                                                     ￥{{ item.price }}
+                                                 </el-col>
+                                                 <el-col :span="17" style="text-align:right">
+                                                    {{item.goodsName}}
+                                                 </el-col>
+                                            </el-row>
+                                            <div class="bottom clearfix">
+                                                <el-button type="text" class="button" style="color:#8e8e93;">点击加入购物车</el-button>
+                                            </div>
+                                        </div>
+                                    </el-card>
+                                </div>
                             </el-tab-pane>
                             <el-tab-pane label="饮料">
-                                外卖
+                                <div v-for="item in bottomDataList2">
+                                    <el-card :body-style="{ padding: '0px' }" style="width:180px;height:250px;float:left;margin:20px">
+                                        <img :src="item.goodsImg" class="image">
+                                        <div style="padding: 14px;">
+                                            <el-row>
+                                                <el-col :span="7" style="text-align:left;color:rgb(206, 66, 31);">
+                                                     ￥{{ item.price }}
+                                                 </el-col>
+                                                 <el-col :span="17" style="text-align:right">
+                                                    {{item.goodsName}}
+                                                 </el-col>
+                                            </el-row>
+                                            <div class="bottom clearfix">
+                                                <el-button type="text" class="button" style="color:#8e8e93;">点击加入购物车</el-button>
+                                            </div>
+                                        </div>
+                                    </el-card>
+                                </div>
                             </el-tab-pane>
                             <el-tab-pane label="套餐">
-                                外卖
+                                <div v-for="item in bottomDataList3">
+                                    <el-card :body-style="{ padding: '0px' }" style="width:180px;height:250px;float:left;margin:20px">
+                                        <img :src="item.goodsImg" class="image">
+                                        <div style="padding: 14px;">
+                                            <el-row>
+                                                <el-col :span="7" style="text-align:left;color:rgb(206, 66, 31);">
+                                                     ￥{{ item.price }}
+                                                 </el-col>
+                                                 <el-col :span="17" style="text-align:right">
+                                                    {{item.goodsName}}
+                                                 </el-col>
+                                            </el-row>
+                                            <div class="bottom clearfix">
+                                                <el-button type="text" class="button" style="color:#8e8e93;">点击加入购物车</el-button>
+                                            </div>
+                                        </div>
+                                    </el-card>
+                                </div>
                             </el-tab-pane>
                         </el-tabs>
 
@@ -90,6 +141,7 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
     name : "Pos",
     data(){
@@ -112,49 +164,7 @@ export default {
           goodsCount:1
         }
         ],
-        rightTopListData : [
-          {
-              goodsId:1,
-              goodsName:'香辣鸡腿堡',
-              price:18
-          }, {
-              goodsId:2,
-              goodsName:'田园鸡腿堡',
-              price:15
-          }, {
-              goodsId:3,
-              goodsName:'和风汉堡',
-              price:15
-          }, {
-              goodsId:4,
-              goodsName:'快乐全家桶',
-              price:80
-          }, {
-              goodsId:5,
-              goodsName:'脆皮炸鸡腿',
-              price:10
-          }, {
-              goodsId:6,
-              goodsName:'魔法鸡块',
-              price:20
-          }, {
-              goodsId:7,
-              goodsName:'可乐大杯',
-              price:10
-          }, {
-              goodsId:8,
-              goodsName:'雪顶咖啡',
-              price:18
-          }, {
-              goodsId:9,
-              goodsName:'大块鸡米花',
-              price:15
-          }, {
-              goodsId:20,
-              goodsName:'香脆鸡柳',
-              price:17
-          }
-        ],
+        rightTopListData : [],
         rightBottomDataList :[
              {
               goodsId:1,
@@ -208,11 +218,50 @@ export default {
               goodsPrice:17
           }
 
-        ]
+        ],
+        bottomDataList0 : [],
+        bottomDataList1 : [],
+        bottomDataList2 : [],
+        bottomDataList3 : [],
         }
     },
+    created : function(){
+        axios.get("https://www.easy-mock.com/mock/5b8b30dbf032f03c5e71de7f/kuaican/oftenGoods")
+        .then(response=>{
+            this.rightTopListData = response.data
+        })
+        .catch(error=>{
+            
+        });
+         axios.get("https://www.easy-mock.com/mock/5b8b30dbf032f03c5e71de7f/kuaican/typeGoods")
+            .then(response=>{
+                var data0 = response.data[0];
+                var data1 = response.data[1];
+                var data2 =  response.data[2];
+                var data3 = response.data[3];
+                for(var i=0;i<data0.length;i++){
+                    data0[i].goodsImg = this.rightBottomDataList[i].goodsImg
+                }
+                this.bottomDataList0 =data0;
+                for(var i=0;i<data1.length;i++){
+                    data1[i].goodsImg = this.rightBottomDataList[i+data0.length].goodsImg
+                }
+                this.bottomDataList1 = data1;
+                 for(var i=0;i<data2.length;i++){
+                    data2[i].goodsImg = this.rightBottomDataList[i+data0.length+data1.length].goodsImg
+                }
+                
+                this.bottomDataList2 = data2;
+                for(var i=0;i<data3.length;i++){
+                    data3[i].goodsImg = this.rightBottomDataList[i+data0.length+data1.length+data2.length].goodsImg
+                }
+                this.bottomDataList3 = data3
+            })
+            .catch(error=>{
+                console.log(error)
+            })
+    },
     mounted : function(){
-        console.log($("#test").val())
     }
       
 }
