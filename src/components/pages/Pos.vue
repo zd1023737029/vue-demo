@@ -16,7 +16,7 @@
                            </el-table-column>
                            <el-table-column width="100" fixed="right" label="操作" >
                                 <template slot-scope="scope">
-                                    <el-button type="text" size="small">删除</el-button>
+                                    <el-button type="text" @click="delOrder(scope.row)" size="small">删除</el-button>
                                     <el-button type="text" @click="addOrderList(scope.row)" size="small">增加</el-button>
                                 </template>
                            </el-table-column>
@@ -33,8 +33,8 @@
                             {{totalCount}}
                        </div>
                         <el-button type="warning" style="margin-top:50px">挂单</el-button>
-                        <el-button type="danger" style="margin-top:50px">删除</el-button>
-                        <el-button type="success" style="margin-top:50px">结账</el-button>
+                        <el-button type="danger" @click = "delOrderList()" style="margin-top:50px">删除</el-button>
+                        <el-button type="success" @click="checkout()" style="margin-top:50px">结账</el-button>
                     </el-tab-pane>
                     <el-tab-pane label="挂单">
                         挂单
@@ -280,12 +280,40 @@ export default {
             }else{
                 //不存在就推入数组
                 let newGoods={goodsId:goods.goodsId,goodsName:goods.goodsName,price:goods.price,count:1};
-                 this.tableData.push(newGoods);
+                this.tableData.push(newGoods);
             }
             this.tableData.forEach(data => {
                 this.totalMoney += data.count*data.price;
                 this.totalCount += data.count
             });
+        },
+        delOrder : function(goods){
+            let arr = this.tableData.filter(o =>o.goodsId == goods.goodsId);
+            this.totalCount--;
+            this.totalMoney -= goods.price;
+            if(arr[0].count>1){
+                arr[0].count--;
+            }else{
+               this.tableData = this.tableData.filter(o =>o.goodsId != goods.goodsId);
+            }
+        },
+        delOrderList : function(){
+            this.tableData = [];
+            this.totalCount = 0;
+            this.totalMoney = 0;
+        },
+        checkout : function(){
+            if (this.totalCount!=0) {
+                this.tableData = [];
+                this.totalCount = 0;
+                this.totalMoney = 0;
+                this.$message({
+                    message: '结账成功，感谢你又为店里出了一份力!',
+                    type: 'success'
+                });
+            }else{
+                this.$message.error('不能空结。老板了解你急切的心情！');
+            }
         }
     }
 
