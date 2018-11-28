@@ -2,16 +2,34 @@
     <div class="left-nav">
         <ul>
             <li>
-                <i class="icon iconfont icon-money"></i>
-                <div>收银</div>
+                <router-link to="/">
+                    <i class="icon iconfont icon-money"></i>
+                    <div>收银</div>
+                </router-link>
             </li>
             <li>
-                <i class="icon iconfont icon-dianpu"></i>
-                <div>店铺</div>
+                <router-link :to="{'name':'shop',params : {'userName' : 'ZD'}}">
+                    <i class="icon iconfont icon-dianpu"></i>
+                    <div>店铺</div>
+                </router-link>
             </li>
             <li>
+                <router-link to="/Shop/shop1">
+                    <i class="icon iconfont icon-dianpu"></i>
+                    <div>店铺1</div>
+                </router-link>
+            </li>
+            <li>
+                <router-link to="/Shop/shop2">
+                    <i class="icon iconfont icon-dianpu"></i>
+                    <div>店铺2</div>
+                </router-link>
+            </li>
+            <li>
+                <router-link to="/Product">
                 <i class="icon iconfont icon-hanbao"></i>
                 <div>商品</div>
+                </router-link>
             </li>
             <li>
                 <i class="icon iconfont icon-wode"></i>
@@ -58,6 +76,10 @@ export default {
  .iconfont{
      font-size : 14px
  }
+ a{
+    color : #FFF;
+    text-decoration: none
+}
 </style>
 
 

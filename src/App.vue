@@ -2,9 +2,9 @@
   <div id="app">
     <leftNav></leftNav>
     <div class="right-main">
-      <pos>
-      </pos>
       <router-view/>
+      <router-view name="view1" style="width:50%;height:100px;background-color:#123456;float:left"></router-view>
+      <router-view name="view2" style="width:50%;height:100px;background-color:#654321;float:left"></router-view>
     </div>
   </div>
 </template>
